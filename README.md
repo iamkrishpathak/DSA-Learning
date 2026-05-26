@@ -16,7 +16,7 @@ This repository contains solutions to DSA problems that I work on regularly. The
 ## 📌 Important Notes
 
 - **Irregular Updates**: Problems and solutions are added as I solve them, so updates may be irregular
-- **Multiple Platforms**: Solutions sourced from various coding platforms (LeetCode, HackerRank, CodeForces, InterviewBit, etc.)
+- **Multiple Platforms**: Solutions sourced from various coding platforms (LeetCode, GeeksforGeeks, Striver DSA sheet etc.)
 - **Explanations Included**: Each solution includes explanation of the approach, time complexity, and space complexity
 
 ## 📂 Structure
