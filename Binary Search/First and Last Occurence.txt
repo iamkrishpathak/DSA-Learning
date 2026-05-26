@@ -35,6 +35,10 @@ class Solution {
         return result;
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> fb95c64ba5b9732993d56653e748d5a76c566c0d
 Time complexity - O(log n)
 Space Complexity - O(1)
 
@@ -42,4 +46,8 @@ Space Complexity - O(1)
 1) We need first and last occurence
 2) Use Binary Search twice
 
+<<<<<<< HEAD
 - First Binary Search will find first occurence and Second one will find last occurence
+=======
+- First Binary Search will find first occurence and Second one will find last occurence
+>>>>>>> fb95c64ba5b9732993d56653e748d5a76c566c0d

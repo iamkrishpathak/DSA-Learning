@@ -43,3 +43,6 @@ class Solution {
 
 
 It is similar to First and Last Occurence just here we are return the number of occurences rather than the indices of both occurences
+
+Similar to that question, we take first and last occurences
+and just return (lastOccurence - firstOccurence) + 1
