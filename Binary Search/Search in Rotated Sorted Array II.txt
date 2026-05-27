@@ -1,0 +1,49 @@
+class Solution {
+    public boolean search(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(nums[mid]==target){
+                return true;
+            }
+            if(nums[low] == nums[mid] && nums[mid] == nums[high]) {
+                low++;
+                high--;
+                continue;
+            }
+
+            if(nums[low] <= nums[mid]) {
+                if(nums[low] <= target && nums[mid] > target) {
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
+            }
+
+            else {
+                if(nums[mid] < target && nums[high] >= target) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
+        }
+        return false;
+    }
+}
+
+Everything is similar to previous question (Search in Rotated Sorted Array), just here comes the duplicate elements for which we use this condition to handle them :
+
+            if(nums[low] == nums[mid] && nums[mid] == nums[high]) {
+                low++;
+                high--;
+                continue;
+            }
+
+Which means here if all low, mid and high values are equal then move low right and high to left and continue the iteration
+
+- APPROACH :
+    1. Handle ambiguity caused by duplicates
+    2. Otherwise detect sorted half normally
+    3. Use range checks
+    4. Discard impossible half
