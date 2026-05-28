@@ -1,0 +1,47 @@
+class Solution {
+    public int findMin(int[] nums) {
+        int low = 0, high = nums.length - 1;
+        int min = Integer.MAX_VALUE;
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(nums[low] <= nums[mid]){
+                if(min > nums[low]){
+                    min = nums[low];
+                }
+                low = mid + 1;
+            }
+            else if(nums[high] >= nums[mid]){
+                if(min > nums[mid]){
+                    min = nums[mid];
+                }
+                high = mid - 1;
+            }
+        }
+        return min;
+    }
+}
+
+
+-INTUITION:
+So, in this question we simply applies binary search as we know that in binary search we eliminates either left or right half of the given array for rotated array
+
+-CODE EXPLANATION:
+1. So here we take all variables we take in normal binary search
+2. Logic is that we take a variable min which is equal to Integer.MAX_VALUE (means maximum value of a integer in JAVA specifically)
+3. We check which part of the given array is sorted by 2 conditions
+    a. if(nums[low] <= nums[mid])
+    b. else if(nums[high] >= nums[mid])
+4. In a sorted ascending half, the first element is always the minimum of that half. (that is the simple ascending order so we know first one will be the minimum of that half sorted array)
+    a. if(min > nums[low]){
+        min = nums[low];
+    }
+    b. if(min > nums[high]){
+        min = nums[mid];
+    }
+5. After getting the minimum from that half sorted array, we will eliminates it because its minimum is already known and move to other part, for that we do:
+    a. low = mid + 1;
+    b. high = mid - 1;
+6. Now repeat the process, until conditions fail
+
+-KEY TAKEAWAYS:
+minimum always lies in the unsorted/broken region
