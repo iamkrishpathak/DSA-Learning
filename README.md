@@ -16,3 +16,5 @@ This repository contains solutions to DSA problems with detailed explanations of
 
 For proof of my success and ongoing progress, visit my LeetCode profile:
 [LeetCode Profile](https://leetcode.com/u/krishpathak/)
+or visit Geeks for Geeks profile:
+[GeeksforGeeks](https://www.geeksforgeeks.org/profile/pathak0404)
