@@ -1,0 +1,29 @@
+class Solution {
+    public int findKRotation(int arr[]) {
+        int low = 0;
+        int high = arr.length - 1;
+        int min = Integer.MAX_VALUE;
+        int idx = -1;
+        while(low<=high){
+            int mid = (low + high)/2;
+            if (arr[low]<=arr[mid]){
+                if(arr[low]<min){
+                    min = arr[low];
+                    idx = low;
+                }
+                low = mid + 1;
+            }
+            else{
+                if(arr[mid]<min){
+                    min = arr[mid];
+                    idx = mid;
+                }
+                high = mid - 1;
+            }
+        }
+        return idx;
+    }
+}
+
+This question is similar to the previous (Min in rotated one)
+Just here we are maintaining a index to return the index of the minimum element
