@@ -45,3 +45,47 @@ So, in this question we simply applies binary search as we know that in binary s
 
 -KEY TAKEAWAYS:
 minimum always lies in the unsorted/broken region
+
+
+SLIGHTLY OPTIMIZED CODE:
+
+class Solution {
+    public int findMin(int[] nums) {
+        int low = 0, high = nums.length - 1;
+        int min = Integer.MAX_VALUE;
+        while(low<=high){
+            int mid = (low+high)/2;
+
+            if(nums[low]<=nums[high]){
+                if(min > nums[low]){
+                    min = nums[low];
+                }
+            }
+
+            if(nums[low] <= nums[mid]){
+                if(min > nums[low]){
+                    min = nums[low];
+                }
+                low = mid + 1;
+            }
+            else if(nums[high] >= nums[mid]){
+                if(min > nums[mid]){
+                    min = nums[mid];
+                }
+                high = mid - 1;
+            }
+        }
+        return min;
+    }
+}
+
+
+What is added in optimal code:
+
+    if(nums[low]<=nums[high]){
+        if(min > nums[low]){
+            min = nums[low];
+        }
+    }
+
+So, basically the core idea is that we does not need to check the sorted part again, we can directly assign minimum from that part and return it
