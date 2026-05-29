@@ -1,0 +1,57 @@
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+        int n = nums.length;
+        int low = 1;
+        int high = n - 2;
+        if(n == 1){
+            return nums[0];
+        }
+        if(nums[0]!=nums[1]){
+            return nums[0];
+        }
+        if(nums[n-1]!=nums[n-2]){
+            return nums[n-1];    
+        }
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(nums[mid]!=nums[mid-1] && nums[mid]!=nums[mid+1]){
+                return nums[mid];
+            }
+            else{
+                if(mid%2==0){
+                    if(nums[mid]==nums[mid+1]){
+                        low = mid + 1;
+                    }
+                    else{
+                        high = mid - 1;
+                    }
+                }
+                
+                else if(mid%2!=0){
+                    if(nums[mid]==nums[mid-1]){
+                        low = mid + 1;
+                    }
+                    else{
+                        high = mid - 1;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+}
+
+
+In a sorted array where every element appears twice except one,
+all pairs before the single element start at even indices.
+
+After the single element appears,
+the pairing pattern shifts and pairs start at odd indices.
+
+Using this parity property,
+we can determine whether the single element lies on the left or right side of mid and eliminate half of the search space each time.
+
+This allows us to use Binary Search in O(log n) time.
+
+Also we trims the low and high in this problem to avoid the edge cases and handle them separately,
+we do so to have both left and right element of every element in the sorted array for comparison
